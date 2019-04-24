@@ -23,8 +23,6 @@ function setup(){
     CANVAS_WIDTH = windowWidth-180;
     CANVAS_HEIGHT = windowHeight-100;
     sliderX = CANVAS_WIDTH/2
-    // CANVAS_WIDTH = 800;
-    // CANVAS_HEIGHT = 800;
     createCanvas(CANVAS_WIDTH,CANVAS_HEIGHT+100);
     background(255);
     frameRate(60);
@@ -41,10 +39,10 @@ function bounce(){
     if(mouseIsPressed){
         background(255);
     }
-    rect(0,850,800,50);
+    rect(0,CANVAS_HEIGHT+50,CANVAS_WIDTH,50);
     fill(127);
-    rect(sliderX,850,800,50);
-    if(mouseIsPressed && mouseY > 850){
+    rect(sliderX,CANVAS_HEIGHT+50,CANVAS_WIDTH,50);
+    if(mouseIsPressed && mouseY > CANVAS_HEIGHT+50){
         sliderX = mouseX;
         init = 0;
     }
@@ -81,10 +79,10 @@ function bounce(){
             ballHeight[i] = ballHeight[i] + ballDirection[i] * ballSpeed[i];// * ballSpeedMod/FPS;
         }
     }
-    if(mouseIsPressed && mouseY < 850){
+    if(mouseIsPressed && mouseY < CANVAS_HEIGHT+50){
         mousePrevPressed = true;
     }
-    if (mouseIsPressed && mouseY < 850){ // mousePrevPressed && !
+    if (mouseIsPressed && mouseY < CANVAS_HEIGHT+50){ // mousePrevPressed && !
         var mouseRelX = mouseX - CANVAS_WIDTH/2;
         var mouseRelY = mouseY - CANVAS_HEIGHT/2;
         var newHeight = Math.max(-CANVAS_HEIGHT/2,Math.min(CANVAS_HEIGHT/2,-Math.sqrt(mouseRelX*mouseRelX+mouseRelY*mouseRelY))); //* Math.sign(mouseRelX)
@@ -303,8 +301,9 @@ function drawBall(height,angle){
     rColor = Math.max(64,Math.min(200,rColor));
     gColor = Math.max(64,Math.min(200,gColor));
     bColor = Math.max(64,Math.min(200,bColor));
-    stroke(255);
-    fill((curX+performance.now()/colorDelay)%127+brightness,(sqrt(curX*curY)+performance.now()/colorDelay)%127+brightness,(curY+performance.now()/colorDelay)%127+brightness);
+    // stroke(255);
+    noStroke()
+    fill((curX+performance.now()/colorDelay)%127+brightness,(sqrt(curX*curY)+performance.now()/colorDelay)%127+brightness,(curY+performance.now()/colorDelay)%127+brightness,50);
     //fill(rColor,gColor,bColor);
     ellipse(curX,curY,20,20);
 }
