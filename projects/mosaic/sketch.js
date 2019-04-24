@@ -9,7 +9,7 @@ let init = false;
 
 function setup(){
     CANVAS_HEIGHT = windowHeight;
-    CANVAS_WIDTH  = windowWidth;
+    CANVAS_WIDTH  = windowWidth-180;
     createCanvas(CANVAS_WIDTH,CANVAS_HEIGHT);
     frameRate(FPS);
     noStroke();

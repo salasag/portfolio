@@ -1,8 +1,8 @@
 var ellx = [];
 var elly = [];
 var numel = 4;
-var CANVAS_WIDTH  = 800;
-var CANVAS_HEIGHT = 800;
+var CANVAS_WIDTH;
+var CANVAS_HEIGHT;
 var ballHeight = [];
 var ballDirection = [];
 var ballSpeed = [];
@@ -13,28 +13,28 @@ var FPS = 60;
 var maxh0 = 0;
 var maxhh = 0;
 var mousePrevPressed = false;
-var sliderX = CANVAS_WIDTH/2
+var sliderX;
 var rColor = 255;
 var gColor = 255;
 var bColor = 255;
 var colorVariance = 10;
 
 function setup(){
+    CANVAS_WIDTH = windowWidth-180;
+    CANVAS_HEIGHT = windowHeight-100;
+    sliderX = CANVAS_WIDTH/2
+    // CANVAS_WIDTH = 800;
+    // CANVAS_HEIGHT = 800;
     createCanvas(CANVAS_WIDTH,CANVAS_HEIGHT+100);
     background(255);
     frameRate(60);
 }
 
 function draw(){
-    //background(0);
     bounce();
-    //drawline();
-    //drawbear();
 }
 
 function preload(){
-    //img = loadimage("images/image.png");
-
 }
 
 function bounce(){

@@ -38,8 +38,8 @@ let cloudYVelocity = [];
 let numClouds = 3;
 
 function setup(){
-    //CANVAS_HEIGHT = windowHeight;
-    //CANVAS_WIDTH = windowWidth;
+    CANVAS_HEIGHT = windowHeight;
+    CANVAS_WIDTH = windowWidth-200;
     createCanvas(CANVAS_WIDTH,CANVAS_HEIGHT);
     frameRate(60);
     textSize(70);
@@ -127,7 +127,7 @@ function drawBall(){
 
 function drawScore(){
     fill(127);
-    text('Score: '+score, CANVAS_WIDTH-400, 150);
+    text('Score: '+score, CANVAS_WIDTH/2, 150);
 }
 
 function isMouseOnBall(){
